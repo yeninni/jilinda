@@ -39,7 +39,11 @@ const manuals = {
   team: {
     title: "팀 운영",
     description: "팀원이 함께 제품을 사용할 때 필요한 초대, 권한, 알림 정책을 정리했습니다.",
-    items: ["멤버 초대와 부서 그룹 설정", "역할별 접근 권한 관리", "업무 알림 채널 및 담당자 지정"]
+    items: ["멤버 초대와 부서 그룹 설정", "역할별 접근 권한 관리", "업무 알림 채널 및 담당자 지정"],
+    video: {
+      title: "팀 운영 영상 가이드",
+      src: "https://www.youtube.com/embed/sv-DMuIV5F0?si=vIdtAW_kRlkDyAJW"
+    }
   },
   data: {
     title: "데이터 분석",
@@ -58,10 +62,25 @@ const tabs = Array.from(document.querySelectorAll(".manual-tab"));
 
 function renderManual(key) {
   const manual = manuals[key];
+  const video = manual.video
+    ? `
+      <div class="manual-video">
+        <iframe
+          src="${manual.video.src}"
+          title="${manual.video.title}"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+    `
+    : "";
+
   detail.innerHTML = `
     <h4>${manual.title}</h4>
     <p>${manual.description}</p>
     <ul>${manual.items.map((item) => `<li>${item}</li>`).join("")}</ul>
+    ${video}
   `;
 }
 
