@@ -70,16 +70,16 @@ button {
   text-decoration: none;
 }
 
-.toc-brand-mark {
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  color: #fff;
-  background: linear-gradient(135deg, #73b8ff, #2b6ff4);
-  font-size: 14px;
-  font-weight: 900;
+.brand-mark {
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  flex: 0 0 auto;
+}
+
+.toc-brand .brand-mark {
+  width: 46px;
+  height: 46px;
 }
 
 .toc-brand strong,
@@ -199,6 +199,25 @@ button {
   font-size: clamp(42px, 5.2vw, 72px);
   line-height: 1.03;
   letter-spacing: 0;
+}
+
+.hero-brand-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.hero-brand-title .brand-mark {
+  width: clamp(92px, 10vw, 132px);
+  height: clamp(92px, 10vw, 132px);
+}
+
+.hero-brand-title span {
+  color: #087a22;
+  font-size: clamp(42px, 5.2vw, 72px);
+  font-weight: 900;
+  line-height: 1.03;
 }
 
 .eyebrow,
