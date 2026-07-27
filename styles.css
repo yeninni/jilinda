@@ -16,6 +16,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -351,9 +355,74 @@ button {
   background: #fff0f0;
 }
 
+.manual-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(760px, 100%);
+  margin: 54px auto 0;
+}
+
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  flex: 1;
+  min-width: 0;
+  min-height: 58px;
+  padding: 0 18px;
+  border: 1px solid #d5dbe5;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.search-field:focus-within {
+  border-color: #9fc2ff;
+  box-shadow: 0 0 0 4px rgba(52, 125, 244, 0.12);
+}
+
+.search-field span {
+  color: #8993a1;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.search-field input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  color: #1f2937;
+  background: transparent;
+  font: inherit;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.search-field input::placeholder {
+  color: #9aa3af;
+}
+
+.search-clear {
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: #445469;
+  background: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.search-clear:hover {
+  color: var(--blue);
+  background: var(--blue-soft);
+}
+
 .updates-section {
   scroll-margin-top: 28px;
-  margin-top: 54px;
+  margin-top: 34px;
   padding: 36px 0 8px;
   border-top: 1px solid #eef2f6;
 }
@@ -419,6 +488,10 @@ button {
 .update-card {
   min-width: 0;
   scroll-snap-align: start;
+}
+
+.update-card[hidden] {
+  display: none;
 }
 
 .update-visual {
@@ -570,6 +643,18 @@ button {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   font-size: 13px;
   line-height: 1.55;
+}
+
+.updates-empty {
+  margin: 24px 0 0;
+  padding: 24px;
+  border: 1px dashed #cfd8e6;
+  border-radius: 8px;
+  color: #667085;
+  background: #fbfdff;
+  font-size: 16px;
+  font-weight: 800;
+  text-align: center;
 }
 
 .contents-grid {
@@ -988,6 +1073,15 @@ button {
 
   .hero-section {
     padding-top: 8px;
+  }
+
+  .manual-search {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .search-clear {
+    align-self: end;
   }
 
   .workspace-preview,

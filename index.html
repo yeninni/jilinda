@@ -139,6 +139,14 @@
           </div>
         </section>
 
+        <section class="manual-search" aria-label="가이드 내용 검색">
+          <label class="search-field" for="updateSearch">
+            <span aria-hidden="true">⌕</span>
+            <input id="updateSearch" type="search" placeholder="아티클 제목, 내용" autocomplete="off" />
+          </label>
+          <button class="search-clear" id="updateSearchClear" type="button" hidden>지우기</button>
+        </section>
+
         <section class="updates-section" id="updates" aria-labelledby="updatesTitle">
           <div class="updates-heading">
             <div>
@@ -204,6 +212,7 @@ FROM ai_reports;</pre>
               </div>
             </article>
           </div>
+          <p class="updates-empty" id="updatesEmpty" hidden>검색 결과가 없습니다.</p>
         </section>
 
         <section class="contents-grid" aria-label="매뉴얼 주요 섹션">
