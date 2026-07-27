@@ -114,28 +114,50 @@
             </div>
           </div>
 
-          <div class="workspace-preview" aria-label="Tilon Sovereign AI 화면 구성 미리보기">
-            <div class="preview-sidebar">
-              <span></span>
-              <span></span>
-              <span></span>
-              <strong>Token</strong>
-            </div>
-            <div class="preview-chat">
-              <div class="preview-toolbar">
+          <div class="workspace-preview tisa-preview" aria-label="TiSA 답변 화면 미리보기">
+            <div class="tisa-topbar">
+              <div class="tisa-tools">
                 <span>Tilon LLM</span>
-                <span>문서 검색 ON</span>
+                <span>이미지 생성</span>
+                <span>비디오 생성</span>
               </div>
-              <div class="chat-bubble user">업로드한 자료를 기준으로 요약해줘.</div>
-              <div class="chat-bubble ai">문서 검색 결과를 바탕으로 핵심 내용을 정리했습니다.</div>
-              <div class="preview-input">무엇이든 물어보세요</div>
+              <div class="tisa-window-controls">
+                <span></span>
+                <span></span>
+              </div>
             </div>
-            <div class="preview-panel">
-              <strong>그룹 자료</strong>
-              <span class="status done">완료</span>
-              <span class="status progress">임베딩</span>
-              <span class="status failed">실패</span>
+
+            <div class="tisa-answer">
+              <div class="tisa-question">과개교합에 대해서 말해줘</div>
+              <article class="tisa-copy">
+                <p>과개교합은 위 앞니가 아래 앞니를 정상보다 많이 덮는 부정교합을 말합니다. 위 앞니가 아래 앞니의 1/3~1/4 정도를 덮어야 정상인데, 이보다 깊게 덮이면 과개교합으로 볼 수 있습니다.</p>
+                <h3>주요 특징 및 증상</h3>
+                <p><strong>잇몸이 많이 보임:</strong> 웃을 때 잇몸이 과도하게 드러납니다. <strong>턱관절 통증:</strong> 깊게 물리는 치아 때문에 턱관절에 부담이 생길 수 있습니다.</p>
+                <h3>원인</h3>
+                <p><strong>선천적 요인:</strong> 윗턱과 아래턱 위치 불균형, 유전적인 골격성 부정교합 등이 원인이 될 수 있습니다.</p>
+                <h3>치료 방법</h3>
+                <p><strong>교정 장치:</strong> 치아 이동과 앞니 높이 조절을 통해 정상적인 교합 회복을 돕습니다.</p>
+              </article>
+              <div class="tisa-input">
+                <span>TiSA에게 물어보기...</span>
+                <div>
+                  <button type="button">문서 검색</button>
+                  <button type="button">웹 검색</button>
+                </div>
+              </div>
             </div>
+
+            <aside class="tisa-reasoning" aria-label="리즈닝 과정">
+              <strong>리즈닝 과정</strong>
+              <ol>
+                <li class="done">요청 분석 중</li>
+                <li class="active">문서 검색 중</li>
+                <li>웹 검색 중</li>
+                <li>검색 결과 정리</li>
+                <li>응답 생성 중</li>
+                <li>답변 완료</li>
+              </ol>
+            </aside>
           </div>
         </section>
 
@@ -228,6 +250,9 @@ FROM ai_reports;</pre>
           <div class="section-kicker">SECTION 1</div>
           <h2>화면 기본 구성</h2>
           <p class="section-summary">화면은 좌측 사이드바, 중앙 대화 영역, 우측 자료 패널 세 개 영역으로 구성됩니다.</p>
+          <figure class="manual-image">
+            <img src="assets/화면기본구성.png" alt="화면 기본 구성 안내 이미지" />
+          </figure>
           <div class="layout-map">
             <article>
               <strong>1. 좌측 사이드바</strong>
@@ -248,6 +273,9 @@ FROM ai_reports;</pre>
           <div class="section-kicker">1-2</div>
           <h2>토큰 사용량 확인</h2>
           <p class="section-summary">좌측 하단의 토큰 사용량 패널에서 실시간 소모량과 잔여 한도를 확인합니다.</p>
+          <figure class="manual-image">
+            <img src="assets/토큰.png" alt="토큰 사용량 확인 안내 이미지" />
+          </figure>
           <div class="step-grid">
             <article class="step-card"><span>1</span><h3>이번 질의</h3><p>현재 대화창에서 질문과 답변에 소모된 실시간 토큰 수를 보여줍니다.</p></article>
             <article class="step-card"><span>2</span><h3>누적 통계</h3><p>지금까지 AI 모델을 사용하며 소모한 총 누적 토큰 합계를 확인합니다.</p></article>
@@ -259,6 +287,9 @@ FROM ai_reports;</pre>
           <div class="section-kicker">SECTION 2 · 2-1</div>
           <h2>새 그룹 AI 만들기</h2>
           <p class="section-summary">관련 자료와 대화를 하나로 묶어 관리하는 단위가 그룹입니다.</p>
+          <figure class="manual-image">
+            <img src="assets/새 그룹 ai만들기.png" alt="새 그룹 AI 만들기 안내 이미지" />
+          </figure>
           <ol class="number-list">
             <li><strong>새 그룹 AI 클릭</strong><span>좌측 상단 메뉴에서 새 그룹 AI를 선택합니다.</span></li>
             <li><strong>그룹 이름 및 설명 지정</strong><span>주제나 프로젝트 단위로 알아보기 쉬운 그룹명과 설명을 입력합니다.</span></li>
@@ -272,6 +303,9 @@ FROM ai_reports;</pre>
         <section class="manual-section" id="new-chat">
           <div class="section-kicker">2-2</div>
           <h2>새 채팅 시작하기</h2>
+          <figure class="manual-image">
+            <img src="assets/새채팅 만들기.png" alt="새 채팅 시작하기 안내 이미지" />
+          </figure>
           <div class="step-grid compact">
             <article class="step-card"><span>1</span><h3>새 채팅 클릭</h3><p>좌측 메뉴의 새 채팅을 선택합니다.</p></article>
             <article class="step-card"><span>2</span><h3>대화 시작</h3><p>안내 문구와 함께 빈 대화창이 열립니다.</p></article>
@@ -284,6 +318,9 @@ FROM ai_reports;</pre>
           <div class="section-kicker">SECTION 3 · 3-1</div>
           <h2>LLM 모델 선택</h2>
           <p class="section-summary">화면 상단의 모델 선택 버튼에서 답변에 사용할 AI 모델을 변경합니다.</p>
+          <figure class="manual-image">
+            <img src="assets/llm 모델 선택.png" alt="LLM 모델 선택 안내 이미지" />
+          </figure>
           <div class="comparison-grid">
             <article><h3>Tilon LLM</h3><p>사내 보안이 중요한 업무나 회사 내부 데이터를 다룰 때 선택하는 내부 전용 모델입니다.</p></article>
             <article><h3>Public AI</h3><p>일반 웹 검색, 아이디어 기획처럼 폭넓고 창의적인 답변이 필요할 때 선택하는 외부 공개 모델입니다.</p></article>
@@ -295,6 +332,9 @@ FROM ai_reports;</pre>
           <div class="section-kicker">3-2</div>
           <h2>웹 검색 · 문서 검색</h2>
           <p class="section-summary">상단 우측 두 개의 토글로 답변에 참고할 정보 범위를 조절합니다.</p>
+          <figure class="manual-image">
+            <img src="assets/웹 검색 문서검색.png" alt="웹 검색 및 문서 검색 안내 이미지" />
+          </figure>
           <div class="mode-list">
             <article><strong>동시 켜기</strong><span>웹 최신 정보와 업로드한 사내 문서를 모두 참고합니다.</span></article>
             <article><strong>웹 검색만 켜기</strong><span>사내 문서를 제외하고 외부 웹 정보와 일반 지식을 사용합니다.</span></article>
@@ -307,6 +347,9 @@ FROM ai_reports;</pre>
           <div class="section-kicker">SECTION 4 · 4-1</div>
           <h2>메시지 작성 및 전송</h2>
           <p class="section-summary">화면 하단 입력창에 원하는 질문을 작성하고 전송합니다.</p>
+          <figure class="manual-image">
+            <img src="assets/메시지 작성 및 전송.png" alt="메시지 작성 및 전송 안내 이미지" />
+          </figure>
           <div class="chat-demo" aria-label="채팅 예시">
             <div class="chat-bubble user">올해 업로드한 정책 문서의 핵심 변경사항을 요약해줘.</div>
             <div class="chat-bubble ai">문서 검색을 기준으로 주요 변경사항과 적용 시점을 정리했습니다.</div>
@@ -318,6 +361,9 @@ FROM ai_reports;</pre>
         <section class="manual-section" id="attach">
           <div class="section-kicker">4-2</div>
           <h2>파일 첨부</h2>
+          <figure class="manual-image">
+            <img src="assets/파일첨부.png" alt="파일 첨부 안내 이미지" />
+          </figure>
           <ol class="number-list two-col">
             <li><strong>클립 아이콘 클릭</strong><span>입력창 좌측의 클립 아이콘을 클릭합니다.</span></li>
             <li><strong>파일 선택</strong><span>참고할 문서나 이미지 파일을 선택해 첨부합니다.</span></li>
@@ -329,6 +375,9 @@ FROM ai_reports;</pre>
           <div class="section-kicker">SECTION 5 · 5-1</div>
           <h2>문서 업로드</h2>
           <p class="section-summary">우측 그룹 자료 패널에서 AI 답변에 활용할 문서를 등록합니다.</p>
+          <figure class="manual-image">
+            <img src="assets/문서업로드.png" alt="문서 업로드 안내 이미지" />
+          </figure>
           <div class="panel-demo">
             <div class="panel-tabs"><span class="active">업로드</span><span>전체</span><span>완료</span></div>
             <div class="upload-area">문서 업로드</div>
@@ -340,6 +389,9 @@ FROM ai_reports;</pre>
         <section class="manual-section" id="embedding">
           <div class="section-kicker">5-2</div>
           <h2>임베딩(학습) 상태 확인</h2>
+          <figure class="manual-image">
+            <img src="assets/임베딩(학습) 상태확인.png" alt="임베딩 학습 상태 확인 안내 이미지" />
+          </figure>
           <div class="status-grid">
             <article><strong>상태 탭 확인</strong><span>전체, 업로드, 임베딩, 완료, 실패 탭으로 진행 상태를 확인합니다.</span></article>
             <article><strong>임베딩 = 학습(색인)</strong><span>AI가 문서를 이해하고 검색 가능한 형태로 색인하는 과정입니다.</span></article>
@@ -352,6 +404,9 @@ FROM ai_reports;</pre>
           <div class="section-kicker">SECTION 6 · 6-1</div>
           <h2>이미지 생성 에이전트</h2>
           <p class="section-summary">좌측 Agent 메뉴에서 텍스트 설명만으로 이미지를 생성합니다.</p>
+          <figure class="manual-image">
+            <img src="assets/이미지 생성.png" alt="이미지 생성 에이전트 안내 이미지" />
+          </figure>
           <div class="agent-grid">
             <article><span>1</span><strong>메뉴 이동</strong><p>이미지 생성 전용 화면으로 진입합니다.</p></article>
             <article><span>2</span><strong>모델 선택</strong><p>이미지를 만들 AI 모델을 지정합니다.</p></article>
@@ -364,6 +419,9 @@ FROM ai_reports;</pre>
         <section class="manual-section" id="video-agent">
           <div class="section-kicker">6-2</div>
           <h2>비디오 생성 에이전트</h2>
+          <figure class="manual-image">
+            <img src="assets/비디오생성.png" alt="비디오 생성 에이전트 안내 이미지" />
+          </figure>
           <div class="agent-grid">
             <article><span>1</span><strong>메뉴 이동</strong><p>비디오 생성 전용 화면으로 진입합니다.</p></article>
             <article><span>2</span><strong>모델 선택</strong><p>비디오를 만들 AI 모델을 지정합니다.</p></article>
