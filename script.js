@@ -4,6 +4,8 @@ const tocMobileToggle = document.getElementById("tocMobileToggle");
 const tocSectionToggles = Array.from(document.querySelectorAll(".toc-section-toggle"));
 const tocLinks = Array.from(document.querySelectorAll(".toc-nav a"));
 const sections = Array.from(document.querySelectorAll("main section[id]"));
+const updatesTrack = document.querySelector(".updates-track");
+const updateButtons = Array.from(document.querySelectorAll(".updates-actions button"));
 
 function setTocOpen(isOpen) {
   toc.classList.toggle("open", isOpen);
@@ -33,6 +35,20 @@ tocLinks.forEach((link) => {
     if (window.matchMedia("(max-width: 980px)").matches) {
       setTocOpen(false);
     }
+  });
+});
+
+updateButtons.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    const card = updatesTrack?.querySelector(".update-card");
+    if (!card) return;
+
+    const direction = index === 0 ? -1 : 1;
+    const gap = parseFloat(getComputedStyle(updatesTrack).columnGap) || 0;
+    updatesTrack.scrollBy({
+      left: direction * (card.getBoundingClientRect().width + gap),
+      behavior: "smooth",
+    });
   });
 });
 
