@@ -656,6 +656,7 @@ button {
 }
 
 .step-grid.compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: 28px;
 }
 
