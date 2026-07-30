@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
@@ -19,7 +19,6 @@
         <div class="sidebar-head">
           <div class="sidebar-title">
             <strong>사용자 매뉴얼</strong>
-            <span>큰 흐름대로 따라가기</span>
           </div>
           <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-controls="sidebar" aria-expanded="true" aria-label="목차 접기">
             <span aria-hidden="true">≡</span>
@@ -100,9 +99,12 @@
             <span class="hero-title">iStation</span>
           </h1>
           <p>
-            iStation은 조직 데이터의 외부 유출을 차단하면서 내부 AI 사용 환경을 제공하는
-            Sovereign AI 기반 On-premise 통합 AI 플랫폼입니다. 이 페이지는 주요 기능을
-            처음 사용하는 순서대로 빠르게 확인할 수 있도록 정리했습니다.
+           iStation 사용자 매뉴얼은 서비스 화면 구성부터 AI 대화, 자료 관리, 특화 에이전트 활용까지 실제 업무 흐름에 따
+           라 단계별로 안내합니다. 처음 접속하는 사용자도 본 매뉴얼을 순서대로 따라가면 iStation의 주요 기능을 무리 
+           없이 활용할 수 있습니다. 
+           화면 캡처와 단계별 설명을 함께 제공하여 실제 조작 화면을 보며 따라 하기 
+           쉽도록 구성했습니다. iStation의 기능은 지속적으로 업데이트되므로, 매뉴얼 또한 변경 사항이 발생할 때마다 함
+           께 개정됩니다.
           </p>
         </div>
       </section>
@@ -148,6 +150,7 @@
 
         <article class="guide-block" id="intro-guide">
           <div class="guide-copy">
+            <p class="step">01</p>
             <h3>iStation 소개</h3>
             <p>iStation은 다양한 LLM을 사내 환경에서 안전하게 활용할 수 있도록 설계된 업무용 AI 플랫폼입니다.</p>
             <ol>
@@ -156,13 +159,12 @@
               <li><strong>맞춤형 지식 활용</strong> 사내 문서를 업로드하고 RAG 검색을 켜면 내부 자료 기반의 업무 답변을 받을 수 있습니다.</li>
             </ol>
           </div>
-          <figure class="image-placeholder" aria-label="iStation 소개 이미지 자리">
-            <span>이미지 준비 중</span>
-          </figure>
+          <figure><img src="assets/iStation 소개.png" alt="iStation 소개 화면" /></figure>
         </article>
 
         <article class="guide-block" id="environment">
           <div class="guide-copy">
+            <p class="step">02</p>
             <h3>권장 환경과 로그인</h3>
             <p>원활한 사용을 위해 지원 브라우저와 사내 접속 환경을 먼저 확인합니다.</p>
             <ol>
@@ -172,13 +174,12 @@
               <li><strong>최초 로그인</strong> TOT 인증을 거쳐 로그인한 뒤 최초 접속 시 필요한 계정 설정을 완료합니다.</li>
             </ol>
           </div>
-          <figure class="image-placeholder" aria-label="로그인 화면 이미지 자리">
-            <span>이미지 준비 중</span>
-          </figure>
+          <figure><img src="assets/권장 환경과 로그인.png" alt="권장 환경과 로그인 화면" /></figure>
         </article>
 
         <article class="guide-block" id="layout">
           <div class="guide-copy">
+            <p class="step">03</p>
             <h3>화면 기본 구성</h3>
             <p>iStation 화면은 좌측 사이드바, 중앙 대화 영역, 우측 자료 패널로 구성됩니다.</p>
             <ol>
@@ -192,6 +193,7 @@
 
         <article class="guide-block" id="tokens">
           <div class="guide-copy">
+            <p class="step">04</p>
             <h3>토큰 사용량 확인</h3>
             <p>좌측 하단의 토큰 패널에서 현재 질문과 답변에 사용된 토큰, 누적 토큰, 남은 토큰을 확인합니다.</p>
             <ol>
@@ -216,6 +218,7 @@
 
         <article class="guide-block" id="group-ai">
           <div class="guide-copy">
+            <p class="step">05</p>
             <h3>새 그룹 AI 만들기</h3>
             <p>그룹은 관련 자료와 대화를 하나로 묶어 관리하는 단위입니다.</p>
             <ol>
@@ -232,6 +235,7 @@
 
         <article class="guide-block" id="new-chat">
           <div class="guide-copy">
+            <p class="step">06</p>
             <h3>새 채팅 시작하기</h3>
             <p>주제가 바뀌면 새 채팅을 만들어 이전 맥락과 섞이지 않게 대화합니다.</p>
             <ol>
@@ -245,6 +249,7 @@
 
         <article class="guide-block" id="models">
           <div class="guide-copy">
+            <p class="step">07</p>
             <h3>LLM 모델 선택</h3>
             <p>대화 화면 상단의 두 드롭다운에서 모델 유형과 세부 모델을 선택합니다.</p>
             <ol>
@@ -260,6 +265,7 @@
 
         <article class="guide-block" id="search-options">
           <div class="guide-copy">
+            <p class="step">08</p>
             <h3>웹 검색과 문서 검색 설정</h3>
             <p>상단 우측의 토글로 답변이 참고할 정보 범위를 선택합니다.</p>
             <ol>
@@ -274,6 +280,7 @@
 
         <article class="guide-block" id="message">
           <div class="guide-copy">
+            <p class="step">09</p>
             <h3>메시지 작성 및 전송</h3>
             <p>화면 하단 입력창에 질문이나 요청사항을 작성한 뒤 전송합니다.</p>
             <ol>
@@ -287,6 +294,7 @@
 
         <article class="guide-block" id="attach">
           <div class="guide-copy">
+            <p class="step">10</p>
             <h3>파일 첨부하기</h3>
             <p>대화 중 참고할 문서나 이미지를 일회성으로 바로 첨부해 분석을 요청할 수 있습니다.</p>
             <ol>
@@ -301,6 +309,7 @@
 
         <article class="guide-block" id="prompt-guide">
           <div class="guide-copy">
+            <p class="step">11</p>
             <h3>효과적인 프롬프트 작성</h3>
             <p>질문의 목적과 형식을 구체적으로 전달할수록 바로 활용하기 좋은 답변을 받을 수 있습니다.</p>
             <ol>
@@ -329,6 +338,7 @@
 
         <article class="guide-block" id="upload">
           <div class="guide-copy">
+            <p class="step">12</p>
             <h3>문서 업로드</h3>
             <p>우측 그룹 자료 패널에서 AI 답변에 사용할 문서를 등록합니다.</p>
             <ol>
@@ -339,11 +349,12 @@
               <li>업로드한 자료를 답변에 활용하려면 대화 상단의 <strong>문서 검색</strong> 토글을 켭니다.</li>
             </ol>
           </div>
-          <figure><img src="assets/문서업로드.png" alt="문서 업로드 화면" /></figure>
+          <figure><img src="assets/문서 업로드1.png" alt="문서 업로드 화면" /></figure>
         </article>
 
         <article class="guide-block" id="embedding">
           <div class="guide-copy">
+            <p class="step">13</p>
             <h3>학습 상태 확인</h3>
             <p>문서가 AI가 검색할 수 있는 형태로 처리되고 있는지 상태를 확인합니다.</p>
             <ol>
@@ -370,6 +381,7 @@
 
         <article class="guide-block" id="image-agent">
           <div class="guide-copy">
+            <p class="step">14</p>
             <h3>이미지 생성하기</h3>
             <p>좌측 Agent 메뉴에서 텍스트 설명만으로 이미지를 생성합니다.</p>
             <ol>
@@ -385,6 +397,7 @@
 
         <article class="guide-block" id="video-agent">
           <div class="guide-copy">
+            <p class="step">15</p>
             <h3>비디오 생성하기</h3>
             <p>비디오 생성 화면에서 모델과 보기 방식을 선택한 뒤 원하는 영상 프롬프트를 전송합니다.</p>
             <ol>
@@ -401,6 +414,7 @@
 
         <article class="guide-block" id="document-agent">
           <div class="guide-copy">
+            <p class="step">16</p>
             <h3>문서 작성하기</h3>
             <p>보고서, 기획서, 회의록, 이메일 등 업무 문서의 초안을 자동으로 생성하는 Agent입니다.</p>
             <ol>
@@ -429,6 +443,7 @@
 
         <article class="guide-block" id="security">
           <div class="guide-copy">
+            <p class="step">17</p>
             <h3>데이터 보안과 프라이버시</h3>
             <p>업무 자료와 대화 내용을 안전하게 다루기 위해 기본 보안 원칙을 확인합니다.</p>
             <ol>
@@ -443,6 +458,7 @@
 
         <article class="guide-block" id="donts">
           <div class="guide-copy">
+            <p class="step">18</p>
             <h3>AI 입력 금지 사항</h3>
             <p>Public AI 사용 시에는 외부로 전달되면 안 되는 정보를 입력하지 않습니다.</p>
             <ol>
@@ -515,4 +531,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
