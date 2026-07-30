@@ -199,8 +199,8 @@ input {
 
 .side-nav a:hover,
 .side-nav a.active {
-  color: var(--green);
-  background: #eef8f1;
+  color: #475569;
+  background: #f3f4f6;
 }
 
 .side-parent:hover,
