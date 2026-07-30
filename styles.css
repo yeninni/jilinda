@@ -474,6 +474,47 @@ input {
   border-top: 1px solid var(--line);
 }
 
+.guide-block:is(
+  #layout,
+  #tokens,
+  #group-ai,
+  #new-chat,
+  #models,
+  #search-options,
+  #message,
+  #attach,
+  #prompt-guide,
+  #upload,
+  #embedding,
+  #image-agent,
+  #video-agent,
+  #document-agent,
+  #delete-history
+) {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+
+.guide-block:is(
+  #layout,
+  #tokens,
+  #group-ai,
+  #new-chat,
+  #models,
+  #search-options,
+  #message,
+  #attach,
+  #prompt-guide,
+  #upload,
+  #embedding,
+  #image-agent,
+  #video-agent,
+  #document-agent,
+  #delete-history
+) .guide-copy {
+  position: static;
+}
+
 .guide-copy {
   position: sticky;
   top: 102px;
