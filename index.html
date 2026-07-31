@@ -1,0 +1,486 @@
+﻿<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iStation 사용자 매뉴얼</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="iStation 사용자 매뉴얼 처음으로">
+        <img src="assets/istation-mark.png" alt="" />
+        <span>iStation</span>
+      </a>
+    </header>
+
+    <div class="page-shell">
+      <aside class="sidebar" id="sidebar" aria-label="매뉴얼 사이드바">
+        <div class="sidebar-head">
+          <div class="sidebar-title">
+            <strong>사용자 매뉴얼</strong>
+          </div>
+          <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-controls="sidebar" aria-expanded="true" aria-label="목차 접기">
+            <span aria-hidden="true">≡</span>
+          </button>
+        </div>
+        <nav class="side-nav">
+          <section class="side-group">
+            <button class="side-parent" type="button" aria-expanded="true" aria-controls="sideStart">
+              <span>01. 시작하기</span>
+              <span aria-hidden="true">⌄</span>
+            </button>
+            <div class="side-sublist open" id="sideStart">
+              <a href="#intro-guide">iStation 소개</a>
+              <a href="#environment">권장 환경과 로그인</a>
+              <a href="#layout">화면 기본 구성</a>
+              <a href="#tokens">토큰 사용량 확인</a>
+            </div>
+          </section>
+          <section class="side-group">
+            <button class="side-parent" type="button" aria-expanded="true" aria-controls="sideChat">
+              <span>02. 대화 공간 만들기</span>
+              <span aria-hidden="true">⌄</span>
+            </button>
+            <div class="side-sublist open" id="sideChat">
+              <a href="#group-ai">새 그룹 AI 만들기</a>
+              <a href="#new-chat">새 채팅 시작하기</a>
+              <a href="#models">LLM 모델 선택</a>
+              <a href="#search-options">웹 검색 / 문서 검색</a>
+              <a href="#message">메시지 작성 및 전송</a>
+              <a href="#attach">파일 첨부하기</a>
+              <a href="#prompt-guide">프롬프트 작성 가이드</a>
+            </div>
+          </section>
+          <section class="side-group">
+            <button class="side-parent" type="button" aria-expanded="true" aria-controls="sideData">
+              <span>03. 자료 연결하기</span>
+              <span aria-hidden="true">⌄</span>
+            </button>
+            <div class="side-sublist open" id="sideData">
+              <a href="#upload">문서 업로드</a>
+              <a href="#embedding">학습 상태 확인</a>
+            </div>
+          </section>
+          <section class="side-group">
+            <button class="side-parent" type="button" aria-expanded="true" aria-controls="sideAgents">
+              <span>04. Agent로 확장하기</span>
+              <span aria-hidden="true">⌄</span>
+            </button>
+            <div class="side-sublist open" id="sideAgents">
+              <a href="#image-agent">이미지 생성하기</a>
+              <a href="#video-agent">비디오 생성하기</a>
+              <a href="#document-agent">문서 작성하기</a>
+            </div>
+          </section>
+          <section class="side-group">
+            <button class="side-parent" type="button" aria-expanded="true" aria-controls="sideSecurity">
+              <span>05. 보안과 지원</span>
+              <span aria-hidden="true">⌄</span>
+            </button>
+            <div class="side-sublist open" id="sideSecurity">
+              <a href="#delete-history">대화 내역 삭제</a>
+              <a href="#security">데이터 보안</a>
+              <a href="#donts">입력 금지 사항</a>
+              <a href="#faq">FAQ와 오류 대처</a>
+              <a href="#support">기술 지원 문의</a>
+            </div>
+          </section>
+        </nav>
+      </aside>
+      <div class="sidebar-scrim" id="sidebarScrim" hidden></div>
+
+    <main id="top" class="content">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">사용자 매뉴얼</p>
+          <h1>
+            <span class="hero-subtitle">조직 안에서 안전하게 쓰는 Internal AI</span>
+            <span class="hero-title">iStation</span>
+          </h1>
+          <p>
+          iStation 사용자 매뉴얼은 화면 구성부터 AI 대화, 자료 관리, Agent 활용까지 실제 업무 흐름에 따라 안내합니다.
+          화면 이미지와 단계별 설명을 제공해 처음 사용하는 사용자도 주요 기능을 쉽게 따라 할 수 있습니다.
+          서비스 기능이 업데이트되면 변경 사항에 맞춰 매뉴얼도 함께 개정됩니다.
+
+          </p>
+        </div>
+      </section>
+
+      <section class="finder" aria-label="매뉴얼 검색">
+        <label for="guideSearch">찾고 싶은 기능</label>
+        <div class="searchbox">
+          <input id="guideSearch" type="search" placeholder="예: 문서 업로드, 프롬프트, 보안, 비디오 생성" autocomplete="off" />
+          <button id="clearSearch" type="button" hidden>지우기</button>
+        </div>
+      </section>
+
+      <section class="chapter" id="start">
+        <h2>서비스 목적과 접속 흐름.</h2>
+        <div class="premise">
+          <p>
+            iStation은 사내 데이터를 외부로 노출하지 않는 Sovereign AI 구조를 기반으로, 여러 LLM과 사내 문서 검색,
+            특화 Agent를 한곳에서 활용하도록 만든 통합 AI 업무 플랫폼입니다. 처음 사용하는 경우 서비스 목적, 접속 환경,
+            화면의 세 영역을 순서대로 이해하면 이후 기능을 훨씬 수월하게 따라갈 수 있습니다.
+          </p>
+        </div>
+
+        <article class="guide-block" id="intro-guide">
+          <div class="guide-copy">
+            <h3>iStation 소개</h3>
+            <p>iStation은 다양한 LLM을 사내 환경에서 안전하게 활용할 수 있도록 설계된 업무용 AI 플랫폼입니다.</p>
+            <ol>
+              <li><strong>사내 데이터 보안</strong> 민감 정보와 내부 문서가 외부 서버로 유출되지 않도록 통제된 환경에서 AI를 사용합니다.</li>
+              <li><strong>업무 생산성 향상</strong> Anthropic, OpenAI, Google 등 다양한 모델을 목적에 맞게 선택해 활용합니다.</li>
+              <li><strong>맞춤형 지식 활용</strong> 사내 문서를 업로드하고 RAG 검색을 켜면 내부 자료 기반의 업무 답변을 받을 수 있습니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/iStation 소개.png" alt="iStation 소개 화면" /></figure>
+        </article>
+
+        <article class="guide-block" id="environment">
+          <div class="guide-copy">
+            <h3>권장 환경과 로그인</h3>
+            <p>원활한 사용을 위해 지원 브라우저와 사내 접속 환경을 먼저 확인합니다.</p>
+            <ol>
+              <li><strong>지원 브라우저</strong> Chrome 또는 Edge 최신 버전을 권장하며 Internet Explorer는 지원하지 않습니다.</li>
+              <li><strong>접속 환경</strong> 사내망 접속을 기본으로 하며, VPN 사용 시 별도 안내에 따라 접속합니다.</li>
+              <li><strong>계정과 권한</strong> IT 관리팀 또는 그룹 관리자에게 계정 생성을 요청하고, 부서와 직무에 맞는 권한을 부여받습니다.</li>
+              <li><strong>최초 로그인</strong> TOT 인증을 거쳐 로그인한 뒤 최초 접속 시 필요한 계정 설정을 완료합니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/권장 환경과 로그인.png" alt="권장 환경과 로그인 화면" /></figure>
+        </article>
+
+        <article class="guide-block" id="layout">
+          <div class="guide-copy">
+            <h3>화면 기본 구성</h3>
+            <p>iStation 화면은 좌측 사이드바, 중앙 대화 영역, 우측 자료 패널로 구성됩니다.</p>
+            <ol>
+              <li><strong>좌측 사이드바</strong> 새 채팅, 새 그룹 AI, 이미지 생성, 비디오 생성 등 주요 기능으로 이동합니다. 현재 계정의 토큰 사용량도 확인할 수 있습니다.</li>
+              <li><strong>중앙 대화 영역</strong> 사용할 AI 모델을 선택하고 웹 검색 또는 문서 검색 옵션을 켠 뒤 질문을 입력합니다.</li>
+              <li><strong>우측 자료 패널</strong> 그룹별 문서를 업로드하고 임베딩, 즉 학습 처리 상태를 확인합니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/화면기본구성.png" alt="iStation 화면 기본 구성" /></figure>
+        </article>
+
+        <article class="guide-block" id="tokens">
+          <div class="guide-copy">
+            <h3>토큰 사용량 확인</h3>
+            <p>좌측 하단의 토큰 패널에서 현재 질문과 답변에 사용된 토큰, 누적 토큰, 남은 토큰을 확인합니다.</p>
+            <ol>
+              <li><strong>이번 질의</strong> 사용자가 입력한 질문과 AI 답변 생성에 쓰인 토큰 수를 보여줍니다.</li>
+              <li><strong>누적 통계</strong> 지금까지 사용한 입력 토큰과 출력 토큰의 합계를 확인합니다.</li>
+              <li><strong>잔여 토큰</strong> 배정된 전체 토큰 한도 대비 현재 사용할 수 있는 토큰을 수치와 상태로 표시합니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/토큰.png" alt="토큰 사용량 확인 화면" /></figure>
+        </article>
+      </section>
+
+      <section class="chapter" id="chat">
+        <h2>대화를 목적에 맞는 공간에서.</h2>
+        <div class="premise">
+          <p>
+            iStation의 대화는 단순히 질문을 입력하는 방식이 아니라, 그룹과 채팅의 단위를 선택해 맥락을 관리하는 방식입니다.
+            관련 자료와 사용자를 함께 묶어야 할 때는 그룹 AI를 만들고, 주제가 바뀌거나 별도 기록이 필요할 때는 새 채팅을 시작합니다.
+            이후 모델과 검색 범위를 정하면 답변이 참고할 기준도 명확해집니다.
+          </p>
+        </div>
+
+        <article class="guide-block" id="group-ai">
+          <div class="guide-copy">
+            <h3>새 그룹 AI 만들기</h3>
+            <p>그룹은 관련 자료와 대화를 하나로 묶어 관리하는 단위입니다.</p>
+            <ol>
+              <li>좌측 상단 메뉴에서 <strong>새 그룹 AI</strong>를 선택합니다.</li>
+              <li>주제를 알아보기 쉬운 그룹 이름과 간단한 설명을 입력합니다.</li>
+              <li>개인용으로 쓸지, 다른 사용자와 공유할지 공개 여부를 설정합니다.</li>
+              <li>공유 그룹이라면 함께 사용할 멤버를 검색해 초대합니다.</li>
+              <li><strong>권한 설정</strong> 매니저는 그룹 설정과 멤버 관리를, 업로더는 자료 업로드와 조회를, 뷰어는 대화 참여와 자료 조회를 할 수 있습니다.</li>
+              <li>생성 버튼을 누르면 좌측 그룹 목록에 새 그룹이 추가되고, 그룹 자료는 멤버에게 동기화됩니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/새 그룹 ai만들기.png" alt="새 그룹 AI 만들기 화면" /></figure>
+        </article>
+
+        <article class="guide-block" id="new-chat">
+          <div class="guide-copy">
+            <h3>새 채팅 시작하기</h3>
+            <p>주제가 바뀌면 새 채팅을 만들어 이전 맥락과 섞이지 않게 대화합니다.</p>
+            <ol>
+              <li>좌측 메뉴에서 <strong>새 채팅</strong>을 선택합니다.</li>
+              <li>중앙 화면에 새 대화창이 열리면 원하는 질문을 입력합니다.</li>
+              <li>진행한 대화는 좌측 채팅 목록에 자동 저장되어 나중에 다시 확인할 수 있습니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/새채팅 만들기.png" alt="새 채팅 시작 화면" /></figure>
+        </article>
+
+        <article class="guide-block" id="models">
+          <div class="guide-copy">
+            <h3>LLM 모델 선택</h3>
+            <p>대화 화면 상단의 두 드롭다운에서 모델 유형과 세부 모델을 선택합니다.</p>
+            <ol>
+              <li><strong>모델 유형 선택</strong> 첫 번째 드롭다운에서 Tilon LLM 또는 Public AI를 선택합니다.</li>
+              <li><strong>세부 모델 선택</strong> 두 번째 드롭다운에서 Claude, GPT, Gemini 등 제공사별 모델을 선택합니다.</li>
+              <li><strong>Tilon LLM</strong> 민감한 내부 정보가 포함된 질문에 권장되는 사내 전용 AI 모델입니다.</li>
+              <li><strong>Public LLM</strong> 일반 지식, 최신 정보 탐색, 초안 작성과 아이디어 기획에 활용할 수 있는 공개 모델입니다.</li>
+              <li><strong>모델 유지</strong> 중요한 문서 작업은 답변 스타일이 흔들리지 않도록 처음부터 끝까지 같은 모델로 진행하는 것을 권장합니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/llm 모델 선택.png" alt="LLM 모델 선택 화면" /></figure>
+        </article>
+
+        <article class="guide-block" id="search-options">
+          <div class="guide-copy">
+            <h3>웹 검색과 문서 검색 설정</h3>
+            <p>상단 우측의 토글로 답변이 참고할 정보 범위를 선택합니다.</p>
+            <ol>
+              <li><strong>웹 검색과 문서 검색 모두 켜기</strong> 최신 외부 정보와 업로드한 내부 문서를 함께 참고합니다.</li>
+              <li><strong>웹 검색만 켜기</strong> 내부 문서는 제외하고 외부 웹 정보 기반으로 답변합니다.</li>
+              <li><strong>문서 검색만 켜기</strong> 웹 검색 없이 사용자가 업로드한 내부 문서만 기반으로 답변합니다.</li>
+              <li><strong>주의</strong> 정확한 답변 생성을 위해 웹 검색 또는 문서 검색 중 최소 하나는 켜져 있어야 합니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/웹 검색 문서검색.png" alt="웹 검색과 문서 검색 설정 화면" /></figure>
+        </article>
+
+        <article class="guide-block" id="message">
+          <div class="guide-copy">
+            <h3>메시지 작성 및 전송</h3>
+            <p>화면 하단 입력창에 질문이나 요청사항을 작성한 뒤 전송합니다.</p>
+            <ol>
+              <li>입력창에 원하는 질문을 작성합니다. Enter로 전송하고 Shift + Enter로 줄바꿈할 수 있습니다.</li>
+              <li>전송 버튼을 누르면 AI가 답변을 생성하고 현재 채팅 기록에 저장합니다.</li>
+              <li>받은 답변 하단의 <strong>답변 복사</strong> 버튼을 사용하면 결과를 다른 문서에 손쉽게 옮길 수 있습니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/메시지 작성 및 전송.png" alt="메시지 작성 및 전송 화면" /></figure>
+        </article>
+
+        <article class="guide-block" id="attach">
+          <div class="guide-copy">
+            <h3>파일 첨부하기</h3>
+            <p>대화 중 참고할 문서나 이미지를 일회성으로 바로 첨부해 분석을 요청할 수 있습니다.</p>
+            <ol>
+              <li>입력창 좌측의 파일 첨부 아이콘을 클릭합니다.</li>
+              <li>참고할 문서 또는 이미지 파일을 선택해 첨부합니다.</li>
+              <li>질문과 함께 파일을 전송하면 AI가 첨부 내용을 참고해 답변합니다.</li>
+              <li>여러 번 반복해서 사용할 자료라면 파일 첨부보다 그룹 자료로 등록하는 방식이 더 편리합니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/파일 첨부1.png" alt="파일 첨부 화면" /></figure>
+        </article>
+
+        <article class="guide-block" id="prompt-guide">
+          <div class="guide-copy">
+            <h3>효과적인 프롬프트 작성</h3>
+            <p>질문의 목적과 형식을 구체적으로 전달할수록 바로 활용하기 좋은 답변을 받을 수 있습니다.</p>
+            <ol>
+              <li><strong>목적 명시</strong> 요약, 비교, 초안 작성, 검토처럼 원하는 작업을 분명하게 적습니다.</li>
+              <li><strong>맥락 제공</strong> 어떤 업무에 사용할 답변인지, 대상 독자가 누구인지 함께 알려줍니다.</li>
+              <li><strong>형식 지정</strong> 표, 목록, 단계별 설명, 3줄 요약처럼 원하는 출력 형태와 분량을 요청합니다.</li>
+              <li><strong>역할 부여</strong> 보고서 검토자, 신입 교육 담당자처럼 AI가 취할 관점을 지정합니다.</li>
+              <li><strong>이어가기</strong> 결과가 부족하면 새 질문을 만들기보다 “이 부분을 더 구체적으로”처럼 후속 요청으로 다듬습니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/효과적인 프롬프트 작성.png" alt="효과적인 프롬프트 작성 화면" /></figure>
+        </article>
+      </section>
+
+      <section class="chapter" id="data">
+        <h2>내 자료를 바탕으로 정확하게.</h2>
+        <div class="premise">
+          <p>
+            문서 검색을 활용하려면 AI가 참고할 자료를 그룹에 업로드해야 합니다. 업로드된 자료는 임베딩, 즉 AI가 검색 가능한
+            형태로 색인하는 과정을 거치며, 완료 상태가 되어야 답변 생성에 안정적으로 활용됩니다. 실패 상태가 보이면 파일 형식과
+            용량을 확인한 뒤 다시 업로드합니다.
+          </p>
+        </div>
+
+        <article class="guide-block" id="upload">
+          <div class="guide-copy">
+            <h3>문서 업로드</h3>
+            <p>우측 그룹 자료 패널에서 AI 답변에 사용할 문서를 등록합니다.</p>
+            <ol>
+              <li>우측 패널의 문서 업로드 영역을 선택합니다.</li>
+              <li><strong>지원 형식</strong> PDF, DOC, DOCX, PPTX, CSV, XLS, XLSX, TXT, MD, HTML, JSON, JSONL 파일을 업로드할 수 있습니다.</li>
+              <li>파일을 드래그하거나 클릭해 보고서, 회의록, 기획서, 데이터표, 발표 자료 등을 등록합니다.</li>
+              <li>파일명은 프로젝트명, 문서 종류, 날짜가 드러나게 정리하면 자료가 많아져도 찾기 쉽습니다.</li>
+              <li>업로드한 자료를 답변에 활용하려면 대화 상단의 <strong>문서 검색</strong> 토글을 켭니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/문서 업로드1.png" alt="문서 업로드 화면" /></figure>
+        </article>
+
+        <article class="guide-block" id="embedding">
+          <div class="guide-copy">
+            <h3>학습 상태 확인</h3>
+            <p>문서가 AI가 검색할 수 있는 형태로 처리되고 있는지 상태를 확인합니다.</p>
+            <ol>
+              <li><strong>상태 탭 확인</strong> 전체, 업로드, 임베딩 완료, 실패 등 진행 상태를 살펴봅니다.</li>
+              <li><strong>임베딩 의미</strong> AI가 문서를 이해하고 검색 가능한 형태로 색인하는 과정입니다.</li>
+              <li><strong>RAG 요청</strong> 문서 목록의 RAG 요청 버튼으로 색인을 요청하고 완료 상태가 될 때까지 기다립니다.</li>
+              <li><strong>새로고침</strong> 우측 상단 새로고침으로 최신 처리 상태를 확인합니다.</li>
+              <li><strong>실패 시 조치</strong> 파일 형식과 용량을 확인한 뒤 다시 업로드합니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/임베딩(학습) 상태확인.png" alt="학습 상태 확인 화면" /></figure>
+        </article>
+      </section>
+
+      <section class="chapter" id="agents">
+        <h2>이미지와 비디오까지 Agent로 손쉽게.</h2>
+        <div class="premise">
+          <p>
+            iStation은 질의응답뿐 아니라 이미지와 비디오 생성처럼 목적이 분명한 특화 Agent를 제공합니다. 좌측 Agent 메뉴에서
+            원하는 생성 기능으로 이동한 뒤, 분위기와 배경, 스타일, 재생 시간 등 필요한 조건을 프롬프트와 옵션으로 지정하면
+            결과물을 생성할 수 있습니다.
+          </p>
+        </div>
+
+        <article class="guide-block" id="image-agent">
+          <div class="guide-copy">
+            <h3>이미지 생성하기</h3>
+            <p>좌측 Agent 메뉴에서 텍스트 설명만으로 이미지를 생성합니다.</p>
+            <ol>
+              <li>좌측 사이드바의 Agent 메뉴에서 <strong>Image Generation</strong>을 선택합니다.</li>
+              <li>이미지를 생성할 AI 모델을 지정합니다.</li>
+              <li>게시글, 갤러리, 목록 중 결과물 표시 방식을 선택합니다.</li>
+              <li>생성 개수 등 이미지 옵션을 설정합니다.</li>
+              <li>대상, 분위기, 배경, 스타일을 프롬프트로 구체적으로 입력하고 생성을 요청합니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/이미지생성1.png" alt="이미지 생성 Agent 화면" /></figure>
+        </article>
+
+        <article class="guide-block" id="video-agent">
+          <div class="guide-copy">
+            <h3>비디오 생성하기</h3>
+            <p>비디오 생성 화면에서 모델과 보기 방식을 선택한 뒤 원하는 영상 프롬프트를 전송합니다.</p>
+            <ol>
+              <li>좌측 사이드바의 Agent 메뉴에서 <strong>Video Generation</strong>을 선택합니다.</li>
+              <li>영상을 만들 AI 모델을 지정합니다.</li>
+              <li>게시글, 갤러리, 목록 중 결과물 표시 방식을 선택합니다.</li>
+              <li>영상 재생 시간 등 옵션을 설정합니다.</li>
+              <li>하단 프롬프트 입력창에 원하는 영상 내용을 작성하고 전송합니다.</li>
+              <li>영상 생성은 이미지보다 오래 걸릴 수 있으니 완료될 때까지 진행 상태를 확인합니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/비디오생성1.png" alt="비디오 생성 Agent 화면" /></figure>
+        </article>
+
+        <article class="guide-block" id="document-agent">
+          <div class="guide-copy">
+            <h3>문서 작성하기</h3>
+            <p>보고서, 기획서, 회의록, 이메일 등 업무 문서의 초안을 자동으로 생성하는 Agent입니다.</p>
+            <ol>
+              <li><strong>문서 목적 정하기</strong> 보고서, 기획서, 회의록, 이메일처럼 만들 문서 유형을 먼저 정합니다.</li>
+              <li><strong>핵심 내용 입력</strong> 문서에 반드시 포함할 키워드, 배경, 대상 독자, 전체 개요를 프롬프트에 작성합니다.</li>
+              <li><strong>형식 지정</strong> 제목 구조, 목차, 분량, 문체, 표 포함 여부 등 원하는 결과 형태를 함께 요청합니다.</li>
+              <li><strong>결과 확인</strong> 생성된 문서를 화면에서 확인하고 빠진 내용이나 어색한 표현을 추가 요청으로 수정합니다.</li>
+              <li><strong>내보내기</strong> 지원되는 파일 형식이 확정되면 필요한 형식으로 다운로드해 업무 문서로 활용합니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/문서 작성하기.png" alt="문서 작성하기 화면" /></figure>
+        </article>
+      </section>
+
+      <section class="chapter" id="security-chapter">
+        <h2>보안부터 문제 대응까지 확실하게.</h2>
+        <div class="premise">
+          <p>
+            iStation은 사내 데이터 보호를 전제로 설계된 서비스이지만, 사용자가 어떤 모델을 선택하고 어떤 정보를 입력하는지도
+            중요합니다. 민감 정보는 Tilon LLM을 우선 사용하고, Public AI에는 기밀 정보를 입력하지 않으며, 오류가 반복될 때는
+            화면과 상황을 정리해 관리자에게 문의합니다.
+          </p>
+        </div>
+
+        <article class="guide-block" id="delete-history">
+          <div class="guide-copy">
+            <h3>대화 내역 삭제</h3>
+            <p>필요한 경우 개별 대화 또는 전체 대화 내역을 삭제할 수 있습니다.</p>
+            <ol>
+              <li>삭제할 대화나 삭제 메뉴가 있는 위치로 이동합니다.</li>
+              <li>삭제 대상을 다시 확인한 뒤 삭제를 실행합니다.</li>
+              <li>삭제된 대화는 복구가 불가능하므로 중요한 답변은 답변 복사 기능으로 별도 보관합니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/대화내역삭제.png" alt="대화 내역 삭제 화면" /></figure>
+        </article>
+
+        <article class="guide-block" id="security">
+          <div class="guide-copy">
+            <h3>데이터 보안과 프라이버시</h3>
+            <p>업무 자료와 대화 내용을 안전하게 다루기 위해 기본 보안 원칙을 확인합니다.</p>
+            <ol>
+              <li><strong>Tilon LLM</strong> 입력 데이터가 외부로 전송되지 않으며 모델 학습에 활용되지 않는 내부 전용 모델입니다.</li>
+              <li><strong>그룹 자료 접근</strong> 업로드된 문서는 해당 그룹 멤버에게만 접근이 허용됩니다.</li>
+              <li><strong>Public AI 주의</strong> 외부 공개 모델 사용 시 제공사 정책이 적용될 수 있으므로 사내 기밀 정보 입력을 피합니다.</li>
+              <li><strong>권한 점검</strong> 퇴사, 부서 이동, 프로젝트 종료 시 매니저가 그룹 멤버와 권한을 정리합니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/데이터 보안과 프라이버시.png" alt="데이터 보안과 프라이버시 화면" /></figure>
+        </article>
+
+        <article class="guide-block" id="donts">
+          <div class="guide-copy">
+            <h3>AI 입력 금지 사항</h3>
+            <p>Public AI 사용 시에는 외부로 전달되면 안 되는 정보를 입력하지 않습니다.</p>
+            <ol>
+              <li><strong>고객 정보 금지</strong> 이름, 연락처, 계약 정보 등 식별 가능한 고객 정보를 입력하지 않습니다.</li>
+              <li><strong>미공개 자료 금지</strong> 재무 자료, 인사 정보, 내부 전략, 계약서 등 공개되지 않은 정보를 입력하지 않습니다.</li>
+              <li><strong>민감 여부가 애매할 때</strong> 우선 Tilon LLM으로 질문하고 필요한 경우에만 Public AI로 전환합니다.</li>
+              <li><strong>세션 관리</strong> 일정 시간 활동이 없으면 세션이 종료될 수 있으므로 재로그인이 필요할 수 있습니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/ai 입력 금지사항.png" alt="AI 입력 금지 사항 화면" /></figure>
+        </article>
+
+        <article class="guide-block" id="faq">
+          <div class="guide-copy">
+            <h3>FAQ와 오류 대처</h3>
+            <p>서비스 이용 중 자주 발생하는 상황은 아래 기준으로 먼저 확인합니다.</p>
+            <ol>
+              <li><strong>비밀번호를 잊은 경우</strong> 로그인 화면의 비밀번호 찾기를 통해 재설정합니다.</li>
+              <li><strong>그룹에서 나가려는 경우</strong> 그룹 설정 메뉴에서 그룹 나가기를 선택합니다.</li>
+              <li><strong>토큰 한도를 모두 쓴 경우</strong> 부서 관리자에게 추가 크레딧 배정을 요청합니다.</li>
+              <li><strong>응답 지연</strong> 네트워크 상태를 확인하고 페이지를 새로고침한 뒤, 지속되면 관리자에게 문의합니다.</li>
+              <li><strong>파일 업로드 실패</strong> 지원 확장자와 용량 제한을 확인하고 다시 업로드합니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/FAQ와 오류 대처.png" alt="FAQ와 오류 대처 화면" /></figure>
+        </article>
+
+        <article class="guide-block" id="support">
+          <div class="guide-copy">
+            <h3>기술 지원 문의</h3>
+            <p>문제가 반복되면 현상과 재현 조건을 정리해 기술 지원 담당자에게 전달합니다.</p>
+            <ol>
+              <li><strong>화면 캡처</strong> 오류 메시지와 현재 화면을 캡처합니다.</li>
+              <li><strong>상황 기록</strong> 사용한 모델, 검색 토글 상태, 업로드 파일 형식, 발생 시간을 함께 기록합니다.</li>
+              <li><strong>문의 전달</strong> 사내 안내에 따라 기술 지원 또는 시스템 장애 문의처로 전달합니다.</li>
+              <li><strong>제약 확인</strong> 입력 글자 수, 지원 언어, 동시 접속자 수 등 시스템 제약은 최종 운영 정책을 확인합니다.</li>
+            </ol>
+          </div>
+          <figure><img src="assets/기술지원문의.png" alt="기술 지원 문의 화면" /></figure>
+        </article>
+      </section>
+
+      <section class="closing">
+        <h2>AI를 우리 조직에 맞게, 업무는 더 똑똑하게.</h2>
+        <p>
+          iStation은 업무 목적에 따라 다양한 AI 모델을 선택하고, 조직의 문서와 지식을 연결해 우리만의 AI 업무 환경을 만듭니다. 
+          축적된 업무 자료를 바탕으로 더 정확한 답변을 얻고, 이미지와 영상 등 필요한 결과물까지 빠르게 완성해보세요.
+        </p>
+      </section>
+    </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
