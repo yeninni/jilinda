@@ -305,8 +305,8 @@ input {
 .hero-title {
   margin-top: 8px;
   color: var(--ink);
-  font-size: clamp(112px, 15vw, 204px);
-  font-weight: 900;
+  font-size: clamp(92px, 12vw, 164px);
+  font-weight: 800;
   line-height: 0.95;
 }
 
@@ -565,7 +565,7 @@ input {
   height: 24px;
   border-radius: 7px;
   color: #fff;
-  background: var(--ink);
+  background: #00b8d4;
   font-size: 12px;
   font-weight: 900;
 }
@@ -628,6 +628,11 @@ input {
   line-height: 1.7;
 }
 
+.closing h2 {
+  white-space: nowrap;
+  font-size: clamp(28px, 3.8vw, 48px);
+}
+
 .is-hidden {
   display: none !important;
 }
@@ -685,7 +690,7 @@ input {
   }
 
   .hero-title {
-    font-size: 64px;
+    font-size: 52px;
   }
 
   .searchbox {
@@ -702,5 +707,9 @@ input {
 
   .closing {
     padding: 28px 22px;
+  }
+
+  .closing h2 {
+    white-space: normal;
   }
 }
