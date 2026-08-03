@@ -85,7 +85,7 @@ function initGuideCopyMotion() {
   gsap.registerPlugin(ScrollTrigger);
 
   guideCopyBlocks.forEach((copy) => {
-    const copyItems = copy.querySelectorAll("h3, p, li");
+    const copyItems = copy.querySelectorAll("h3, h4, p, li");
 
     gsap.fromTo(
       copyItems,
