@@ -162,11 +162,11 @@ input {
 .side-nav,
 .side-sublist {
   display: grid;
-  gap: 5px;
+  gap: 8px;
 }
 
 .side-nav {
-  margin-top: 18px;
+  margin-top: 22px;
 }
 
 .side-group {
@@ -175,7 +175,7 @@ input {
 }
 
 .side-group + .side-group {
-  margin-top: 14px;
+  margin-top: 22px;
 }
 
 .side-nav a,
@@ -184,7 +184,7 @@ input {
   align-items: center;
   min-height: 37px;
   width: 100%;
-  padding: 7px 10px 7px 16px;
+  padding: 9px 10px 9px 16px;
   border: 0;
   border-radius: 8px;
   color: #667085;
@@ -240,7 +240,7 @@ input {
 
 .side-sublist {
   overflow: hidden;
-  padding: 6px 0 0 8px;
+  padding: 10px 0 0 8px;
 }
 
 .side-sublist:not(.open) {
@@ -423,8 +423,8 @@ input {
   grid-template-columns: minmax(320px, 0.86fr) minmax(0, 1.14fr);
   gap: 30px;
   align-items: start;
-  margin-top: 34px;
-  padding-top: 34px;
+  margin-top: 68px;
+  padding-top: 56px;
   border-top: 1px solid var(--line);
 }
 
@@ -704,6 +704,11 @@ input {
   margin-top: 48px;
 }
 
+#intro-guide + .guide-block {
+  margin-top: 76px;
+  padding-top: 62px;
+}
+
 .guide-block .image-placeholder {
   display: grid;
   place-items: center;
@@ -794,6 +799,11 @@ input {
   .hero,
   .guide-block {
     grid-template-columns: 1fr;
+  }
+
+  .guide-block {
+    margin-top: 54px;
+    padding-top: 44px;
   }
 
   .guide-copy {
