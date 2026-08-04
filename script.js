@@ -1,48 +1,13 @@
-const guideSearch = document.getElementById("guideSearch");
-const clearSearch = document.getElementById("clearSearch");
 const sidebar = document.getElementById("sidebar");
 const sidebarToggle = document.getElementById("sidebarToggle");
 const sidebarScrim = document.getElementById("sidebarScrim");
 const pageShell = document.querySelector(".page-shell");
-const guideBlocks = Array.from(document.querySelectorAll(".guide-block"));
-const quickLinks = Array.from(document.querySelectorAll(".quick-links a"));
 const navLinks = Array.from(document.querySelectorAll(".side-nav a"));
 const sideParentButtons = Array.from(document.querySelectorAll(".side-parent"));
-const chapters = Array.from(document.querySelectorAll(".chapter"));
 const trackedSections = Array.from(document.querySelectorAll(".chapter, .guide-block"));
 const guideFigures = Array.from(document.querySelectorAll(".guide-block figure"));
 const guideCopyBlocks = Array.from(document.querySelectorAll(".guide-copy"));
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-function normalizeText(element) {
-  return element.textContent.replace(/\s+/g, " ").trim().toLowerCase();
-}
-
-function filterGuides() {
-  const keyword = guideSearch.value.trim().toLowerCase();
-  clearSearch.hidden = keyword.length === 0;
-
-  guideBlocks.forEach((block) => {
-    const isMatch = !keyword || normalizeText(block).includes(keyword);
-    block.classList.toggle("is-hidden", !isMatch);
-  });
-
-  quickLinks.forEach((link) => {
-    const target = document.querySelector(link.getAttribute("href"));
-    const isMatch = !keyword || normalizeText(link).includes(keyword) || (target && normalizeText(target).includes(keyword));
-    link.classList.toggle("is-hidden", !isMatch);
-  });
-
-  if (window.ScrollTrigger) {
-    ScrollTrigger.refresh();
-  }
-}
-
-function clearGuideSearch() {
-  guideSearch.value = "";
-  guideSearch.focus();
-  filterGuides();
-}
 
 function setSidebarOpen(isOpen) {
   sidebar.classList.toggle("open", isOpen);
@@ -120,7 +85,7 @@ function initGuideCopyMotion() {
   gsap.registerPlugin(ScrollTrigger);
 
   guideCopyBlocks.forEach((copy) => {
-    const copyItems = copy.querySelectorAll("h3, p, li");
+    const copyItems = copy.querySelectorAll("h3, h4, p, li");
 
     gsap.fromTo(
       copyItems,
@@ -141,8 +106,6 @@ function initGuideCopyMotion() {
   });
 }
 
-guideSearch.addEventListener("input", filterGuides);
-clearSearch.addEventListener("click", clearGuideSearch);
 sidebarToggle.addEventListener("click", () => {
   setSidebarCollapsed(!pageShell.classList.contains("sidebar-collapsed"));
 });
